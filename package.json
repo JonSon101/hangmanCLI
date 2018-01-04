@@ -1,0 +1,22 @@
+{
+  "name": "hangmancli",
+  "version": "1.0.0",
+  "description": "# Advanced JavaScript Assignment: Constructor Hangman",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonSon101/hangmanCLI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonSon101/hangmanCLI/issues"
+  },
+  "homepage": "https://github.com/JonSon101/hangmanCLI#readme",
+  "dependencies": {
+    "inquirer": "^4.0.2"
+  }
+}
