@@ -17,6 +17,10 @@ inquirer.prompt([
     }
 });
 
+
 var game = function() {
     console.log("Game Start!");
+
+    var word = require("./word.js");
+
 };
