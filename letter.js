@@ -1,7 +1,7 @@
-var letter = function() {
-
-
-
+function Letter(rawLetter) {
+    this.visLetter = rawLetter;
+    this.displayLetter = " _ ";
+    
 }
 
-module.exports = letter;
+module.exports = Letter;
