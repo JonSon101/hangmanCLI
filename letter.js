@@ -1,7 +1,9 @@
-function Letter(rawLetter) {
-    this.visLetter = rawLetter;
-    this.displayLetter = " _ ";
-    
+function Letter(l) {
+    this.visible = l;
+    this.hidden  = "_"
+    //actual
+    this.displayed = this.hidden;
+
 }
 
 module.exports = Letter;

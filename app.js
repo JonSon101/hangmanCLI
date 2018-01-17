@@ -47,6 +47,8 @@ var game = function() {
     
     var randomWord = wordLibrary[Math.floor(Math.random() * wordLibrary.length)];
     var gameWord = new Word(randomWord);
+    gameWord.convert();
+    
     var guessCount = 9;
     
     console.log(guessCount + " guesses remaining.\n");
@@ -56,7 +58,7 @@ var game = function() {
 
 //recursive function for guessing
 var userGuess = function(gameWord, guessCount) {
-    console.log(gameWord.display() + "\n");
+    console.log(gameWord.toString() + "\n");
 
     inquirer.prompt([
         {
@@ -66,18 +68,23 @@ var userGuess = function(gameWord, guessCount) {
         }
     ]).then(function(res) {
 
-        if (gameWord.lettersArray.indexOf(res.letterGuessed) > -1) {
+        if (gameWord.checkLetter(res.letterGuessed)) {
             console.log("\nCorrect!\n");
-
-            userGuess(gameWord, guessCount);
+            if (gameWord.checkForWin()) {
+                console.log("Congratulations! The word was: ", gameWord.toString());
+                reset();
+            } else {
+                userGuess(gameWord, guessCount);
+            }
         } else {
             console.log("\nSorry...\n");
-            console.log(--guessCount + " guess remaining.\n");
+            console.log(--guessCount + " guesses remaining.\n");
 
             if (guessCount > 0) {
                 userGuess(gameWord, guessCount);
             } else {
-                console.log("\nSorry, you ran out of guesses. \n\nGame Over.");
+                gameWord.displayAll();
+                console.log("Sorry, you ran out of guesses. The word was: " + gameWord.toString() + "\n\nGame Over.");
                 reset();
             }
         }
